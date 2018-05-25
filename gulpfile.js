@@ -23,18 +23,24 @@ var minifyCss = require('gulp-minify-css');//压缩css
 // ==========================================================================================================
 
 
-gulp.task('serve',function() {
+gulp.task('default',function() {
     browserSync.init({
             server: {
                 baseDir: "./",
-                index:'dist/index.html' // 指定默认打开的文件
+                index:'dist/main.html' // 指定默认打开的文件
             }
         });
-  
+
     gulp.watch(['less/*.less'],['clean-css','watch-less','replace-css']);
     gulp.watch(['script/*.js'],['clean-js','watch-js','replace-js']);
     gulp.watch(['*.html'],['watch-html']);
   });
+
+  /**
+   * 每次检测到文件更新，首先删除旧文件
+   */
+
+
 gulp.task('clean-css',function(){
     return gulp.src('dist/style/*.css',{read:false})
                .pipe(clean());
@@ -43,23 +49,19 @@ gulp.task('clean-js',function(){
     return gulp.src('dist/script/*.js',{read:false})
                .pipe(clean());
 })
-gulp.task('replace-js',['watch-js'],function(){
-    return gulp.src(['dist/rev/*.json','dist/*.html'])
-               .pipe(revCollector({
-                   replaceReved:true,
-                   merge:true
-               }))
-               .pipe(gulp.dest('./'));
-})
-gulp.task('replace-css',['watch-less'],function(){
-    return gulp.src(['dist/rev/*.json','dist/*.html'])
-        .pipe( revCollector({
-            replaceReved: true,
-            merge:true
-        }) )
-        .pipe( gulp.dest('./') );
-});
+
+
+/**
+ * 检测到js、css文件变化时，进行编译、转译、添加版本号等操作，并输出到指令目录，生成rev-manifest.json对照表，同时热更新页面
+ */
+
+
 gulp.task('watch-js',['clean-js'],function(){
+
+    /**
+     * 需要合并js时取消注释65、64行，并注释66行
+     */
+
     // return gulp.src(['script/*.js','!script/global.js'])
     return gulp.src('script/*.js')
                 // .pipe(concat('global.js'))//合并
@@ -75,9 +77,11 @@ gulp.task('watch-js',['clean-js'],function(){
                 .pipe(gulp.dest('./'))
                 .pipe(reload({stream:true}));
 })
+
 gulp.task('watch-less',['clean-css'],function () {
+
     return gulp.src('less/*.less')
-                // .pipe(concat('global.less'))
+                // .pipe(concat('global.less'))//合并
                 .pipe(less())
                 .pipe(gulp.dest('style/'))
                 .pipe(rev())
@@ -105,6 +109,29 @@ gulp.task('watch-html', function () {
         .pipe(gulp.dest('dist/'))
         .pipe(reload({stream:true}));        
 });
+
+
+/**
+ * 修改dist目录下html文件引用路径
+ */
+
+gulp.task('replace-js',['watch-js'],function(){
+    return gulp.src(['dist/rev/*.json','dist/*.html'])
+               .pipe(revCollector({
+                   replaceReved:true,
+                   merge:true
+               }))
+               .pipe(gulp.dest('./'));
+})
+gulp.task('replace-css',['watch-less'],function(){
+    return gulp.src(['dist/rev/*.json','dist/*.html'])
+        .pipe( revCollector({
+            replaceReved: true,
+            merge:true
+        }) )
+        .pipe( gulp.dest('./') );
+});
+
 // ==========================================================================================================
 //          开发环境配置:
 //                          架设静态服务器、
@@ -112,7 +139,7 @@ gulp.task('watch-html', function () {
 //                          多终端同步热更新、
 //                          es6=>es5
 //                          静态文件添加hash后缀防缓存、
-//                          html简单压缩
+//                          html压缩
 // 
 //                                              -----------2018.3.1  elephant.h
 // ==========================================================================================================

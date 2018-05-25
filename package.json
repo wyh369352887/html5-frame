@@ -25,13 +25,6 @@
     "gulp-uglify": "^3.0.0"
   },
   "devDependencies": {
-    "babel-loader": "^7.1.4",
-    "bowserify": "^10.2.1",
-    "browserify": "^16.2.2",
-    "buffer-from": "^1.0.0",
-    "eslint": "^4.19.1",
-    "gulp-require": "^0.1.4",
-    "gulp-requirejs": "^1.1.1",
-    "webpack": "^4.8.3"
+    "eslint": "^4.19.1"
   }
 }
