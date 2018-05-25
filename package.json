@@ -25,6 +25,7 @@
     "gulp-uglify": "^3.0.0"
   },
   "devDependencies": {
-    "eslint": "^4.19.1"
+    "eslint": "^4.19.1",
+    "hoek": "^5.0.3"
   }
 }
