@@ -9,12 +9,19 @@
 **项目结构**
 
     ├─ dist    //dist/为最终输出目录
+    │  │
     │  ├─ index.html
+    │  │
     │  ├─ image
+    │  │
     │  ├─ style
+    │  │
     │  ├─ rev  //存放添加hash后缀的文件对照关系表
+    │  │
     │  ├─ media
+    │  │
     │  ├─ script
+    │  │
     │  └─ lib
     │
     ├─less    //less文件源码目录
