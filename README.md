@@ -8,29 +8,23 @@
 
 **项目结构**
 
-    ├─ dist
+    ├─ dist    //dist/为最终输出目录
     │  ├─ index.html
     │  ├─ image
     │  ├─ style
-    │  ├─ rev  
+    │  ├─ rev  //存放添加hash后缀的文件对照关系表
     │  ├─ media
     │  ├─ script
     │  └─ lib
     │
-    ├─less
+    ├─less    //less文件源码目录
     │
-    ├─script
+    ├─script    //js文件源码目录
     │
-    ├─style
+    ├─style    //less编译成css后存放的目录
     │
-    └─index.html
-<br>
-1.dist/为最终输出目录<br>
-2.所有html文件均放置在根目录下<br>
-3.rev/存放添加hash后缀的文件对照关系表<br>
-4.less/为.less文件源码目录<br>
-5.script/为js文件源码目录<br>
-6.style/为less编译成css后存放的目录
+    └─index.html    //所有html文件均放置在根目录下
+
 
 <br>
 <br>
