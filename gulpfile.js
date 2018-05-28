@@ -27,7 +27,7 @@ gulp.task('default',function() {
     browserSync.init({
             server: {
                 baseDir: "./",
-                index:'dist/main.html' // 指定默认打开的文件
+                index:'dist/index.html' // 指定默认打开的文件
             }
         });
 
