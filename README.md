@@ -1,56 +1,63 @@
-### 介绍
+### 介绍:heart:
 
 H5快速自动化开发模板、脚手架
 
-### 适用项目
+### 适用项目:hourglass:
 
 工期约一个月内的小项目
 
-### 工作流
+### 工作流:muscle:
 
 监听文件更新 => 清除老版本 => 编译、转译 => 加hash版本号 => 多终端热更新
-  
-    
-    
 
-### 项目结构
+### 项目结构:deciduous_tree:
 
-    ├─ dist    //打包目录
-    │  │
-    │  ├─ index.html
-    │  │
-    │  ├─ image
-    │  │
-    │  ├─ style
-    │  │
-    │  ├─ rev  //存放添加hash后缀的文件对照关系表
-    │  │
-    │  ├─ media
-    │  │
-    │  ├─ script
-    │  │
-    │  └─ lib
-    │
-    ├─less    //less文件源码目录
-    │
-    ├─script    //js文件源码目录
-    │
-    ├─style    //less编译成css后存放的目录
-    │
-    └─index.html    //所有html文件均放置在根目录下
-
+```
+├─ dist    //打包目录
+│  │
+│  ├─ index.html
+│  │
+│  ├─ image
+│  │
+│  ├─ style
+│  │
+│  ├─ rev  //存放添加hash后缀的文件对照关系表
+│  │
+│  ├─ media
+│  │
+│  ├─ script
+│  │
+│  └─ lib
+│
+├─less    //less文件源码目录
+│
+├─script    //js文件源码目录
+│
+├─style    //less编译成css后存放的目录
+│
+└─index.html    //所有html文件均放置在根目录下
+```
 
 <br>
 <br>
 
-### 使用方法
+### 使用方法:hand:
 
 *clone到本地后，命令行进入该目录，运行:*<br>
 <br>
-`$ gulp`  
-    
+
+
+`$ npm install `
+
+安装完所需依赖后
+
+`$ gulp`
+
+架设静态服务器，开始愉快的敲键盘吧~
+
 ---
-### 注意事项
+
+### 注意事项:zap:
 
 1.所有html文件引用静态资源，均引用dist/目录下的，勿直接引用源码<br>
 2.新添加文件后需要重启gulp工作流，否则无法实时热更新<br>
