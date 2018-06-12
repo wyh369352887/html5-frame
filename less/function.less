@@ -1,0 +1,40 @@
+/*
+    定义mixin方法
+*/
+.bg(@param){
+    background-image: url(@param);
+    background-size: 100% 100%;
+}
+.wh(@w,@h){
+    width: @w;
+    height: @h;
+}
+.wh-bg(@w,@h,@img){
+    width: @w;
+    height: @h;
+    background-image: url(@img);
+    background-size: 100% 100%;
+}
+.absolute(@t:auto,@b:auto,@l:auto,@r:auto){
+    position: absolute;
+    top: @t;
+    bottom:@b;
+    left: @l;
+    right: @r;
+}
+.relative(@t:auto,@b:auto,@l:auto,@r:auto){
+    position: relative;
+    top: @t;
+    bottom:@b;
+    left: @l;
+    right: @r;
+}
+/*
+    定义图片url
+*/
+@url:'../image/';
+
+/*
+    定义常量
+*/
+@v:7.5vw;
