@@ -97,12 +97,12 @@ gulp.task('watch-html', function () {
     var options = {
         // collapseWhitespace: true, //压缩HTML
         collapseBooleanAttributes: true, //省略布尔属性的值
-        removeComments: true, //清除html注释
-        removeEmptyAttributes: true, //删除所有空格做属性的值
+        removeComments: false, //清除html注释
+        removeEmptyAttributes: false, //删除所有空格做属性的值
         removeScriptTypeAttributes: true, //删除<script>的type="text/javascript"
         removeStyleLinkTypeAttributes: true, //删除<style>和<link>的type="text/css"
-        minifyJS: true,   //压缩页面JS
-        minifyCSS: true    //压缩页面CSS
+        minifyJS: false,   //压缩页面JS
+        minifyCSS: false    //压缩页面CSS
     };
     return gulp.src('*.html')
         .pipe(htmlmin(options))
