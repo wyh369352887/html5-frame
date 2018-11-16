@@ -34,7 +34,7 @@ gulp.task('default',function() {
             // 将根目录下的nginx.conf文件与原nginx配置文件替换
             // 端口号应与nginx代理的端口号一致
 
-            // proxy:'localhost:3000',
+            // proxy:'localhost:3003',
 
         });
 
