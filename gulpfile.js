@@ -28,7 +28,14 @@ gulp.task('default',function() {
             server: {
                 baseDir: "./",
                 index:'dist/index.html' // 指定默认打开的文件
-            }
+            },
+
+            // 如果需要跨域，开启nginx反向代理，打开下面注释内容，并将上面server属性注释掉
+            // 将根目录下的nginx.conf文件与原nginx配置文件替换
+            // 端口号应与nginx代理的端口号一致
+
+            // proxy:'localhost:3000',
+
         });
 
     gulp.watch(['less/*.less'],['clean-css','watch-less','replace-css']);
